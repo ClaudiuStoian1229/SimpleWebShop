@@ -1,0 +1,43 @@
+package sws.dao;
+import sws.model.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.net.SocketTimeoutException;
+import java.util.ArrayList;
+import java.util.List;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+
+public class ProdusDao {
+	
+	public List<produs> getProduse(){
+		List<produs> produse = new ArrayList<produs>();
+	try {
+		obj = new produs();
+		while ((obj = ois.readObject()) != null) {
+		produs produs = new produs();
+		FileInputStream fis = new FileInputStream("produse.txt");
+		ObjectInputStream ois = new ObjectInputStream(fis);
+		produs = (produs) ois.readObject();
+		produse.add(i, produs);
+		}
+		
+	
+	}
+	catch(Exception e) {
+		e.printStackTrace();
+	}
+	
+		
+		return produse;
+	}
+
+}
